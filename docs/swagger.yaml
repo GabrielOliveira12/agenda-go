@@ -1,0 +1,191 @@
+definitions:
+  main.Lembrete:
+    properties:
+      data:
+        type: string
+      descricao:
+        type: string
+      nome:
+        type: string
+      usuarioID:
+        type: integer
+    type: object
+  main.Usuario:
+    properties:
+      lembretes:
+        items:
+          $ref: '#/definitions/main.Lembrete'
+        type: array
+      nome:
+        type: string
+      sobrenome:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /lembretes:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: listlembretes
+      tags:
+      - Lembretes
+    post:
+      consumes:
+      - application/json
+      description: Insere os lembretes
+      parameters:
+      - description: struct
+        in: body
+        name: Lembretes
+        required: true
+        schema:
+          $ref: '#/definitions/main.Lembrete'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: insertlembretes
+      tags:
+      - Lembretes
+  /lembretes/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Exclui os lembretes
+      parameters:
+      - description: Lembrete ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: deletelembretes
+      tags:
+      - Lembretes
+    put:
+      consumes:
+      - application/json
+      description: Altera os lembretes
+      parameters:
+      - description: struct
+        in: body
+        name: Lembretes
+        required: true
+        schema:
+          $ref: '#/definitions/main.Lembrete'
+      - description: Lembrete ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: updatelembretes
+      tags:
+      - Lembretes
+  /usuario:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: listusuario
+      tags:
+      - Usuarios
+    post:
+      consumes:
+      - application/json
+      description: Insere os usuarios
+      parameters:
+      - description: struct
+        in: body
+        name: Usuarios
+        required: true
+        schema:
+          $ref: '#/definitions/main.Usuario'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: insertusuario
+      tags:
+      - Usuarios
+  /usuario/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Deleta os usuarios
+      parameters:
+      - description: Usuario ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: deleteusuario
+      tags:
+      - Usuarios
+    put:
+      consumes:
+      - application/json
+      description: Altera os usuarios
+      parameters:
+      - description: struct
+        in: body
+        name: Usuarios
+        required: true
+        schema:
+          $ref: '#/definitions/main.Usuario'
+      - description: Usuario ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: updateusuario
+      tags:
+      - Usuarios
+swagger: "2.0"
