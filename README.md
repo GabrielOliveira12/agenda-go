@@ -1,1 +1,2 @@
-# Primeiro projeto em golang utilizando GIN GONIC, GORM e SWAGGER.
+# Primeiro projeto em go!
+Utilizando GIN, GORM e SWAGGER
