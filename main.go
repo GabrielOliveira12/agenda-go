@@ -1,10 +1,15 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"agenda/db"
+	"agenda/routes"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 	r := gin.Default()
-	Connect()
-	CrudLembretes(r)
+	db.Connect()
+	routes.CrudLembretes(r)
 	r.Run(":8080")
 }
