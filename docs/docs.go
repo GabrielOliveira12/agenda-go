@@ -245,7 +245,7 @@ const docTemplate = `{
                 "tags": [
                     "Usuarios"
                 ],
-                "summary": "deleteusuario",
+                "summary": "deleteusuario\\",
                 "parameters": [
                     {
                         "type": "string",

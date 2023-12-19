@@ -159,7 +159,7 @@ paths:
           description: OK
           schema:
             type: string
-      summary: deleteusuario
+      summary: deleteusuario\
       tags:
       - Usuarios
     put:
